@@ -3,25 +3,26 @@
 <head>
   <title>Login App</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
+  <%#= javascript_include_tag "libs/jquery-1.6.3.min.js" %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <%= javascript_include_tag "modernizr.custom.min","jquery-1.6.3.min.js", "old-browsers.js", "common.js", "standard.js", "jquery.tip.js", "pages.js" %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-
-<div id="user_nav">
-
-	<% flash.each do |key, value| %>
-	  <%= content_tag :div, value, :class => "flash #{key}" unless value.blank? %>
-	<% end %>
+<body  class="special-page login-bg dark">
 
 
-  <% if user_signed_in? %>
-    Signed in as <%= current_user.email %>. Not you?
-    <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-  <% else %>
-    <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "sign in", new_user_session_path %>
-  <% end %>
-</div>
 
 
 <%= yield %>

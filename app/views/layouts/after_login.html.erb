@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  
+  <title>Constellation Admin Skin</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+
+  <%= stylesheet_link_tag    "reset.css", "common.css", "form.css", "standard-alt.css", "960.gs.fluid.css", "simple-lists.css", "block-lists.css", "planning.css", "table.css", "calendars.css", "wizard.css", "gallery.css", :media => "all" %>
+
+
+  <script src="js/libs/modernizr.custom.min.js"></script>
+
+
+
+
+  <script src="http://www.google.com/jsapi"></script>
+
+
+
+
+
+
+
+
+
+  <%= javascript_include_tag "jquery-1.6.3.min.js", "old-browsers.js", "jquery.hashchange.js", "jquery.accessibleList.js", "searchField.js", "common.js", "standard.js", "jquery.tip.js", "jquery.contextMenu.js" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+
+
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,10 +1,18 @@
 Deviseapp::Application.routes.draw do
+  #get "pages/login"
+
+  get "pages/index_alt"
+  get "pages/login"
+
+devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end  
+
   devise_for :users
 
   resources :posts
 
 
   get "home/index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
