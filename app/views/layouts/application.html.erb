@@ -2,28 +2,13 @@
 <html>
 <head>
   <title>Login App</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%#= javascript_include_tag "libs/jquery-1.6.3.min.js" %>
 
+  <%= stylesheet_link_tag    "reset.css", "common.css", "form.css", "standard.css", "special-pages.css", :media => "all" %>
 
-
-
-
-
-
-
-
-
-
-
-
-  <%= javascript_include_tag "modernizr.custom.min","jquery-1.6.3.min.js", "old-browsers.js", "common.js", "standard.js", "jquery.tip.js", "pages.js" %>
+  <%= javascript_include_tag "modernizr.custom.min","jquery-1.6.3.min.js", "old-browsers.js", "common.js", "standard.js", "jquery.tip.js", "pages.js", "sign-up.js" %>
   <%= csrf_meta_tags %>
 </head>
 <body  class="special-page login-bg dark">
-
-
-
 
 <%= yield %>
 

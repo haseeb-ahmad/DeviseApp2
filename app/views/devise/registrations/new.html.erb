@@ -1,18 +1,53 @@
-<h2>Sign up</h2>
+	<section id="message">
+		<div class="block-border"><div class="block-content no-title dark-bg">
+			<p class="mini-infos">For demo website, use <b>admin</b> / <b>admin</b></p>
+		</div></div>
+	</section>
+	
+	<section id="login-block">
+		<div class="block-border"><div class="block-content">
+			
+			<!--
+			IE7 compatibility: if you want to remove the <h1>, 
+			add style="zoom:1" to the above .block-content div
+			-->
+			<h1>Admin</h1>
+			<div class="block-header">Please Sign Up</div>
+				
+			<p class="message error no-margin">Error message</p>
+			
+			
+			<%= form_for("user", :url => registration_path(User), :html => { 
+				:id => "sign-up-form", :class => "form with-margin", :name => "login-form" }) do |f| %>
 
-<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
+				<!---
+				<input type="hidden" name="a" id="a" value="send">
+				-->
 
-  <div><%= f.label :email %><br />
-  <%= f.email_field :email, :autofocus => true %></div>
+				<p class="inline-small-label">
+				<label for="login"> <span class="big"> Email </span> </label>
+			  	<%= f.text_field :email,:id => "login", :name => "login", :class => "full-width"%>
+				</p>
 
-  <div><%= f.label :password %><br />
-  <%= f.password_field :password %></div>
+				<p class="inline-small-label">
+					<label for="pass"> <span class="big"> Password </span> </label>
+					<%= f.password_field :password, :id => "pass", :name => "pass", :class => "full-width" %>
+				</p>
 
-  <div><%= f.label :password_confirmation %><br />
-  <%= f.password_field :password_confirmation %></div>
+				<p class="inline-small-label">
+					<label for="pass"> <span class="big"> Confirm </span> </label>
+					<%= f.password_field :password_confirmation, :id => "con-pass", :name => "con-pass", :class => "full-width" %>
+				</p>
 
-  <div><%= f.submit "Sign up" %></div>
-<% end %>
 
-<%= render "devise/shared/links" %>
+				<button type="button" class="float-right"> <%=link_to "Sign In", new_user_session_path, :style => "color: white;" %> </button>
+
+				<%= f.button "Sign Up", :class => "float-right" %>
+				<% end %>
+				
+				<p class="input-height" style="padding-top: 1.5em;">
+
+				</p>
+
+		</div></div>
+	</section>
