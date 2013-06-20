@@ -1409,7 +1409,7 @@ section {
 		margin-left: 0;
 		margin-bottom: 0;
 		-moz-border-radius: 0;
-		-webkit-border-radius: ;
+		// -webkit-border-radius: ;
 		border-radius: 0;
 		}
 		section .no-margin:last-child > .block-footer:last-child {
