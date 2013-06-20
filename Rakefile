@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Deviseapp::Application.load_tasks
+Loginapp::Application.load_tasks

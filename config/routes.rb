@@ -1,18 +1,31 @@
-Deviseapp::Application.routes.draw do
-  #get "pages/login"
+Loginapp::Application.routes.draw do
 
-  get "pages/index_alt"
+
   get "pages/login"
+  get "pages/index_alt"
+  
 
-devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end  
+  devise_for :users do 
+    get '/users/sign_out' => 'devise/sessions#destroy' 
+  end  
+
 
   devise_for :users
 
   resources :posts
-
+  root :to => 'home#index'
 
   get "home/index"
 
+  resources :users do
+    collection do
+      get 'checkname'
+    end
+  end
+  
+  ActiveAdmin.routes(self)
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -63,7 +76,7 @@ devise_for :users do get '/users/sign_out' => 'devise/sessions#destroy' end
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-    root :to => 'home#index'
+
 
   # See how all your routes lay out with "rake routes"
 

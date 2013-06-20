@@ -8,4 +8,13 @@ class User < ActiveRecord::Base
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
   # attr_accessible :title, :body
+
+  def self.AlreadyExists? (email)
+  	if User.where('email = ?', email).count == 0
+  		false
+  	else
+  		true
+  	end
+
+  end
 end
