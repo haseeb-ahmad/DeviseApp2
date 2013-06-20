@@ -14,7 +14,7 @@
 			<h1>Admin</h1>
 			<div class="block-header">Please Sign Up</div>
 				
-			<p class="message error no-margin">Error message</p>
+			<p class="message error no-margin" style="display: none;">Error message</p>
 			
 			
 			<%= form_for("user", :url => registration_path(User), :html => { 
@@ -23,6 +23,11 @@
 				<!---
 				<input type="hidden" name="a" id="a" value="send">
 				-->
+
+				<p class="inline-small-label">
+				<label for="login"> <span class="big"> Username </span> </label>
+			  	<%= f.text_field :username,:id => "username", :name => "username", :class => "full-width"%>
+				</p>
 
 				<p class="inline-small-label">
 				<label for="login"> <span class="big"> Email </span> </label>
@@ -39,10 +44,10 @@
 					<%= f.password_field :password_confirmation, :id => "con-pass", :name => "con-pass", :class => "full-width" %>
 				</p>
 
-
+<!--
 				<button type="button" class="float-right"> <%=link_to "Sign In", new_user_session_path, :style => "color: white;" %> </button>
-
-				<%= f.button "Sign Up", :class => "float-right" %>
+-->
+				<%= f.button "Submit", :class => "float-right" %>
 				<% end %>
 				
 				<p class="input-height" style="padding-top: 1.5em;">

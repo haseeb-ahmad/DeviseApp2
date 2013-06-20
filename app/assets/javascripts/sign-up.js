@@ -7,17 +7,24 @@
 				event.preventDefault();
 				
 				// Check fields
+				var user_name = $('#username').val();
 				var login = $('#login').val();
 				var pass = $('#pass').val();
 				var confirm = $('#con-pass').val();
+
+				$('.message .error').show();
 				
 				if (!login || login.length == 0)
 				{
-					$('#login-block').removeBlockMessages().blockMessage('Please enter your user name.', {type: 'warning'});
+					$('#login-block').removeBlockMessages().blockMessage('Please enter your email.', {type: 'warning'});
 				}
 				else if (!pass || pass.length == 0)
 				{
 					$('#login-block').removeBlockMessages().blockMessage('Please enter your password.', {type: 'warning'});
+				}
+				else if (!user_name || user_name.length == 0)
+				{
+					$('#login-block').removeBlockMessages().blockMessage('Please enter your user name.', {type: 'warning'});
 				}
 				else if (!pass || pass.length == 0)
 				{
@@ -42,7 +49,8 @@
 						async: 'false',
 						dataType: 'html',
 						type: 'GET',
-						data: {email: login},
+						data: {email: login,
+								username: user_name},
 
 						success: function (data) {
 
@@ -63,7 +71,9 @@
 							var data = {
 									a: $('#a').val(),
 									
-									user: {email: login,
+									user: {
+									username: user_name,
+									email: login,
 									password: pass,
 									password_confirmation: confirm}
 								},
@@ -92,7 +102,7 @@
 // alert(login);
 // alert(pass);
 									data = {							
-											user: {email: login,
+											user: {username: user_name,
 											password: pass},
 											'keep-logged': $('#keep-logged').attr('checked') ? 1 : 0
 										},
@@ -138,7 +148,7 @@
 
 							// alert("User is there Error");
 
-							$('#login-block').removeBlockMessages().blockMessage('Username already exists', {type: 'error'});
+							$('#login-block').removeBlockMessages().blockMessage('Username or Email already exists', {type: 'error'});
 						}
 
 					});

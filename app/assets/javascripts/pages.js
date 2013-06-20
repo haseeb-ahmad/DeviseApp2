@@ -7,8 +7,10 @@
 				event.preventDefault();
 				
 				// Check fields
-				var login = $('#login').val();
+				var login = $('#username').val();
 				var pass = $('#pass').val();
+
+				$('.message .error').show();
 				
 				if (!login || login.length == 0)
 				{
@@ -35,7 +37,7 @@
 					var data = {
 							a: $('#a').val(),
 							
-							user: {email: login,
+							user: {login: login,
 							password: pass},
 							'keep-logged': $('#keep-logged').attr('checked') ? 1 : 0
 						},
