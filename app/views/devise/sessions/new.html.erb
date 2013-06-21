@@ -16,7 +16,11 @@
 				
 			<p class="message error no-margin" style="display: none;">Error message</p>
 			
-			
+			<%= link_to "Sign in with Facebook", user_omniauth_authorize_path(:facebook) %>
+			<br/>
+			<%= link_to "Sign in with Google", user_omniauth_authorize_path(:google_oauth2) %>
+			<br/>
+
 			<%= form_for("user", :url => user_session_path, :html => { 
 				:id => "login-form", :class => "form with-margin", :name => "login-form" }) do |f| %>
 

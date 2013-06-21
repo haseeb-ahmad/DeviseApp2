@@ -4,6 +4,7 @@ Loginapp::Application.routes.draw do
   get "pages/login"
   get "pages/index_alt"
   
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_for :users do 
     get '/users/sign_out' => 'devise/sessions#destroy' 
