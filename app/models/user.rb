@@ -25,11 +25,13 @@ class User < ActiveRecord::Base
 
 
       unless user
-        user = User.create( name:auth.extra.raw_info.name,
-                            provider:auth.provider,
-                            uid:auth.uid,
-                            email:auth.info.email
-                          )
+        user = User.new
+        user.name = auth.extra.raw_info.name
+        user.provider = auth.provider
+        user.uid = auth.uid
+        user.email = auth.info.email
+
+        user.save(validate: false)
       end
       user
   end
