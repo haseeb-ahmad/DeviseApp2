@@ -9,7 +9,7 @@ gem 'devise'
 gem 'activeadmin'
 gem 'rename'
 
-gem 'ruby-debug19'
+#gem 'ruby-debug19'
 
 
 gem 'omniauth'
