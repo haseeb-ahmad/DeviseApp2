@@ -46,7 +46,7 @@ $(document).ready(function()
 
 			},
 			error: function(XMLHttpRequest, textStatus, errorThrown) {
-				$('#login-block').removeBlockMessages().blockMessage('Email address is not valid.', {type: 'error'});
+				$('#login-block').removeBlockMessages().blockMessage('Email does not exists.', {type: 'error'});
 			}
 		});
 	});
