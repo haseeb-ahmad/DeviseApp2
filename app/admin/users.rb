@@ -10,6 +10,7 @@ ActiveAdmin.register User do
     column :uid
     column :current_sign_in_at
     column :last_sign_in_at
+    column :remember_created_at
     column :sign_in_count
     column :created_at
     column :updated_at

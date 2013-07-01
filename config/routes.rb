@@ -3,7 +3,8 @@ Loginapp::Application.routes.draw do
 
   get "pages/login"
   get "pages/index_alt"
-  
+  put "pages/index_alt"
+
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
 
   devise_for :users do 
@@ -20,7 +21,9 @@ Loginapp::Application.routes.draw do
 
   resources :users do
     collection do
-      get 'checkname'
+      get 'check_email_and_username'
+      get 'validate_user'
+      get 'get_user'
     end
   end
   

@@ -41,7 +41,7 @@
 				<button type="button" class="float-right"> <%=link_to "Sign Up", new_user_registration_path,
 				:style => "color: white;" %> </button>
 
-				<%= f.button "Sign In", :class => "float-right" %>
+				<%= f.button "Sign In", :class => "float-right", :style => "" %>
 
 			<% end %>
 
@@ -49,16 +49,18 @@
 					<input type="checkbox" name="keep-logged" id="keep-logged" value="1" class="mini-switch" checked="checked">
 					<label for="keep-logged" class="inline">Keep me logged in</label>
 				</p>
-			
-			<form class="form" id="password-recovery" method="post" action="">
+
+
+			<%= form_for("user", :url => password_path(User), :html => { :method => :post, 
+				:id => "password-recovery", :class => "form" }) do |f| %>
 				<fieldset class="grey-bg no-margin collapse">
 					<legend><a href="#">Lost password?</a></legend>
 					<p class="input-with-button">
 						<label for="recovery-mail">Enter your e-mail address</label>
-						<input type="text" name="recovery-mail" id="recovery-mail" value="">
-						<button type="button">Send</button>
+						<%= f.text_field :email, :id => "email", :name => "email" %>
+						<%= f.button "Send" %>
 					</p>
 				</fieldset>
-			</form>
+			<% end %>
 		</div></div>
 	</section>

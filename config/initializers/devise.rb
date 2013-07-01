@@ -1,13 +1,12 @@
 require "omniauth-facebook"
 require "omniauth-google-oauth2"
-
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
   # note that it will be overwritten if you use your own mailer class with default "from" parameter.
-  config.mailer_sender = "please-change-me-at-config-initializers-devise@example.com"
+  config.mailer_sender = "sheraz.ishaq.aldaim@gmail.com"
 
   config.omniauth :facebook, '534584433269634', '94bb4c073c6bfcf83ffeb260cae46cc3'
   config.omniauth :google_oauth2, '507576602224', 'TH6MgqkBdRYoSm2vJRlUyGwO', { access_type: "offline", approval_prompt: "" }

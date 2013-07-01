@@ -1,16 +1,40 @@
-<h2>Change your password</h2>
+	<section id="message">
+		<div class="block-border"><div class="block-content no-title dark-bg">
+			<p class="mini-infos">For demo website, use <b>admin</b> / <b>admin</b></p>
+		</div></div>
+	</section>
+	
+	<section id="login-block">
+		<div class="block-border"><div class="block-content">
+			
+			<!--
+			IE7 compatibility: if you want to remove the <h1>, 
+			add style="zoom:1" to the above .block-content div
+			-->
+			<h1>Admin</h1>
+			<div class="block-header">Change password</div>
+				
+			<p class="message error no-margin" style="display: none;">Error message</p>
 
-<%= form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
+			<%= form_for("user", :url => password_path(User), :html => { :method => :put,
+				:id => "password-reset-form", :class => "form with-margin", :name => "password-reset-form" }) do |f| %>
 
-  <div><%= f.label :password, "New password" %><br />
-  <%= f.password_field :password, :autofocus => true %></div>
+				<%= f.hidden_field :reset_password_token, :id => "token" %>
 
-  <div><%= f.label :password_confirmation, "Confirm new password" %><br />
-  <%= f.password_field :password_confirmation %></div>
+				<p class="inline-small-label">
+				<label for="password"> <span class="big"> Password </span> </label>
+			  	<%= f.password_field :password,:id => "password", :name => "password", :class => "full-width"%>
+				</p>
 
-  <div><%= f.submit "Change my password" %></div>
-<% end %>
+				<p class="inline-small-label">
+					<label for="pass"> <span class="big"> Confirm Password </span> </label>
+					<%= f.password_field :password_confirmation, :id => "password_confirmation", :name => "password_confirmation", :class => "full-width" %>
+				</p>
 
-<%= render "devise/shared/links" %>
+				<%= f.button "Change Password", :class => "float-right" %>
+
+				<br/>
+
+			<% end %>
+		</div></div>
+	</section>

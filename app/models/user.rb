@@ -30,22 +30,25 @@ class User < ActiveRecord::Base
         user.provider = auth.provider
         user.uid = auth.uid
         user.email = auth.info.email
-
         user.save(validate: false)
       end
       user
   end
 
   def self.already_exists? (input)
-  	if User.where('email = ? OR username = ?', input[:email], input[:username]).count == 0
-  		false
-  	else
-  		true
-    end
+  	User.where('email = ? OR username = ?', input[:email], input[:username]).count == 0 ? false : true
   end
 
-    def self.find_first_by_auth_conditions(warden_conditions)
-    conditions = warden_conditions.dups
+  def self.vaild_email? (email)
+    User.where('email = ?', email).count == 0 ? false : true
+  end
+
+  def self.get_user_by_token (token)
+    user = User.where('reset_password_token = ?', token).first.email
+  end
+
+  def self.find_first_by_auth_conditions(warden_conditions)
+    conditions = warden_conditions
     if login = conditions.delete(:login)
       where(conditions).where(["lower(username) = :value OR lower(email) = :value", { :value => login.downcase }]).first
     else
